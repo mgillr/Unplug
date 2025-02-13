@@ -1,0 +1,159 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$UNPLUG | The Choice is Yours</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="glitch-overlay"></div>
+  <div class="scanline"></div>
+  
+  <div class="header">
+    <div class="title-container">
+      <img src="Pill.png" alt="Pill" class="pill-logo">
+      <h1 class="title glitch" data-text="UNPLUG">UNPLUG</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="countdown-container">
+      <div id="countdown">
+        <div class="time">
+          <span id="hours">00</span>
+          <span class="time-label">HOURS</span>
+        </div>
+        <div class="separator">:</div>
+        <div class="time">
+          <span id="minutes">00</span>
+          <span class="time-label">MINUTES</span>
+        </div>
+        <div class="separator">:</div>
+        <div class="time">
+          <span id="seconds">00</span>
+          <span class="time-label">SECONDS</span>
+        </div>
+      </div>
+      
+      <div id="message" class="matrix-message">
+        <div class="message-content">
+          <p class="typewriter">When the clock hits zero, will you be holding… or just watching?</p>
+          <p class="fade-in">Most will sleep. Few will see.</p>
+          <p class="highlight">Integrity and Distribution are the key, but only those who embrace chance will shape the future.</p>
+          <p class="glow">The risk-takers, the ones who dare to step forward, will be the ones who rise.</p>
+          <p class="pulse">Awaken.</p>
+          <p class="fade-in">The choice is yours—you can continue as you always have, and nothing will change,<br>
+          or you can alter your path and ignite the possibility of a chain reaction.</p>
+        </div>
+      </div>
+
+      <div class="matrix-links">
+        <div class="links-container">
+          <div class="link-group">
+            <a href="https://twitter.com/RyanGilles40488" target="_blank" class="matrix-link">
+              <span class="link-icon">></span>
+              <span class="link-text" data-text="Dev X Link">Dev X Link</span>
+              <span class="link-value" data-text="@RyanGilles40488">@RyanGilles40488</span>
+            </a>
+            
+            <a href="https://t.me/thematrixcult" target="_blank" class="matrix-link">
+              <span class="link-icon">></span>
+              <span class="link-text" data-text="Telegram">Telegram</span>
+              <span class="link-value" data-text="@thematrixcult">@thematrixcult</span>
+            </a>
+            
+            <a href="#" class="matrix-link disabled">
+              <span class="link-icon">></span>
+              <span class="link-text" data-text="DexScreener">DexScreener</span>
+              <span class="link-value" data-text="Coming Soon...">Coming Soon...</span>
+            </a>
+            
+            <a href="#" class="matrix-link disabled">
+              <span class="link-icon">></span>
+              <span class="link-text" data-text="PumpFun">PumpFun</span>
+              <span class="link-value" data-text="Coming Soon...">Coming Soon...</span>
+            </a>
+            
+            <a href="#" class="matrix-link disabled">
+              <span class="link-icon">></span>
+              <span class="link-text" data-text="BullX">BullX</span>
+              <span class="link-value" data-text="Coming Soon...">Coming Soon...</span>
+            </a>
+            <a href="#" class="matrix-link disabled">
+              <span class="link-icon">></span>
+              <span class="link-text" data-text="GMQN">GMQN</span>
+              <span class="link-value" data-text="Coming Soon...">Coming Soon...</span>
+            </a>
+          </div>
+            
+
+          <div class="community-stats">
+            <div class="stats-container">
+              <div class="stat-item agents-online">
+                <span class="stat-value" id="onlineCount">1,337</span>
+                <span class="stat-label">Agents Online</span>
+              </div>
+              <div class="stat-item time-remaining">
+                <span class="stat-value" id="accessSlots">89</span>
+                <span class="stat-label">Early Access Slots</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="recent-joins" id="recentJoins">
+            <!-- Recent joins will be populated by JS -->
+          </div>
+
+          <div class="share-section">
+            <div class="share-container">
+              <button class="share-button twitter-share">
+                <span class="share-icon">X</span>
+                <span class="share-text">Spread the Signal</span>
+              </button>
+              <button class="share-button copy-link">
+                <span class="share-icon">{}</span>
+                <span class="share-text">Copy Invite Code</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="matrix-symbols">
+            <div class="symbol-container">
+              <!-- Matrix symbols will be animated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="floating-elements">
+    <div class="matrix-code top-left"></div>
+    <div class="matrix-code top-right"></div>
+    <div class="phase-indicator">PHASE 1/3: AWARENESS</div>
+  </div>
+
+  <div id="matrix-rain"></div>
+
+  <!-- Audio Elements -->
+  <div style="display: none;" id="audio-container">
+    <audio id="sound1" preload="auto" src="hello-neo-do-you-know-who-this-is-morpheus-yes-ive-been-looking-for-you-new-101soundboards.mp3"></audio>
+    <audio id="sound2" preload="auto" src="at-last-welcome-to-you-as-you-no-doubt-have-guessed-i-am-morpheus-101soundboards.mp3"></audio>
+    <audio id="sound3" preload="auto" src="unfortunately-no-one-can-be-to-what-the-matrix-is-you-have-to-see-it-for-yourself-101soundboards.mp3"></audio>
+    <audio id="sound4" preload="auto" src="the-matrix-is-a-computer-generated-dreamworld-101soundboards.mp3"></audio>
+    <audio id="sound5" preload="auto" src="as-long-as-the-matrix-exists-the-human-race-will-never-be-free-101soundboards.mp3"></audio>
+    <audio id="sound6" preload="auto" src="i-i-hate-this-place-this-zoo-this-prison-this-reality-whatever-you-want-to-call-it-101soundboards.mp3"></audio>
+    <audio id="sound7" preload="auto" src="human-beings-are-disease-cancer-of-this-planet-you-are-a-plague-and-we-are-the-cure-101soundboards.mp3"></audio>
+    <audio id="sound8" preload="auto" src="do-not-try-and-bend-the-spoon-thats-impossible-early-try-to-realize-the-truth-or-truth-there-is-no-spoon-there-is-no-spoon-then-youll-see-that-it-is-not-the-spoon-that-bends-it-is-only-your-101soundboards.mp3"></audio>
+    <audio id="sound9" preload="auto" src="there-is-no-spoon-101soundboards.mp3"></audio>
+    <audio id="sound10" preload="auto" src="neil-no-one-is-ever-done-anything-like-this-thats-why-its-going-to-work-101soundboards.mp3"></audio>
+    <audio id="sound11" preload="auto" src="neo-sooner-or-later-youre-going-to-realize-just-decided-theres-a-difference-between-knowing-the-path-and-walking-101soundboards.mp3"></audio>
+    <audio id="sound12" preload="auto" src="you-are-the-1-near-you-see-you-may-have-spent-the-last-few-years-looking-for-me-but-ive-spent-my-entire-life-looking-for-you-101soundboards.mp3"></audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
