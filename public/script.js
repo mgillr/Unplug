@@ -1,11 +1,11 @@
 function updateCountdown() {
   const now = new Date();
-  if (!window.targetTime) {
-    window.targetTime = new Date(now.getTime() + 48 * 60 * 60 * 1000);
-    localStorage.setItem('countdownTarget', window.targetTime.getTime());
+  if (!localStorage.getItem('countdownTarget')) {
+    const targetTime = new Date(now.getTime() + 48 * 60 * 60 * 1000);
+    localStorage.setItem('countdownTarget', targetTime.getTime());
   }
   
-  const targetTime = new Date(parseInt(localStorage.getItem('countdownTarget')) || window.targetTime);
+  const targetTime = new Date(parseInt(localStorage.getItem('countdownTarget')));
   const diff = targetTime - now;
 
   if (diff <= 0) {
