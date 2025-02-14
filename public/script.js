@@ -1,8 +1,9 @@
 function updateCountdown() {
   const now = new Date();
   if (!localStorage.getItem('countdownTarget')) {
-    const targetTime = new Date(now.getTime() + 48 * 60 * 60 * 1000);
-    localStorage.setItem('countdownTarget', targetTime.getTime());
+    const initialTargetTime = new Date();
+    initialTargetTime.setHours(initialTargetTime.getHours() + 48);
+    localStorage.setItem('countdownTarget', initialTargetTime.getTime());
   }
   
   const targetTime = new Date(parseInt(localStorage.getItem('countdownTarget')));
