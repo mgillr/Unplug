@@ -1,20 +1,16 @@
 function updateCountdown() {
   const now = new Date();
-  if (!localStorage.getItem('countdownTarget')) {
-    const initialTargetTime = new Date();
-    initialTargetTime.setHours(initialTargetTime.getHours() + 168); // 7 days
-    localStorage.setItem('countdownTarget', initialTargetTime.getTime());
+  const VERSION = "v2"; // Change this version to force reset for all users
+  
+  // Clear old localStorage if version doesn't match
+  if (localStorage.getItem('countdownVersion') !== VERSION) {
+    localStorage.clear(); // Clear all localStorage
+    localStorage.setItem('countdownVersion', VERSION);
   }
   
-  const targetTime = new Date(parseInt(localStorage.getItem('countdownTarget')));
+  // Always calculate from now
+  const targetTime = new Date(now.getTime() + (168 * 60 * 60 * 1000));
   const diff = targetTime - now;
-
-  if (diff <= 0) {
-    document.getElementById("hours").innerText = "00";
-    document.getElementById("minutes").innerText = "00";
-    document.getElementById("seconds").innerText = "00";
-    return;
-  }
 
   const hours = Math.floor(diff / (1000 * 60 * 60));
   const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
