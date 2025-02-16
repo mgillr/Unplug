@@ -2,7 +2,7 @@ function updateCountdown() {
   const now = new Date();
   if (!localStorage.getItem('countdownTarget')) {
     const initialTargetTime = new Date();
-    initialTargetTime.setHours(initialTargetTime.getHours() + 48);
+    initialTargetTime.setHours(initialTargetTime.getHours() + 168); // Changed from 48 to 168 hours (7 days)
     localStorage.setItem('countdownTarget', initialTargetTime.getTime());
   }
   
