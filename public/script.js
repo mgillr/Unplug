@@ -1,16 +1,22 @@
 function updateCountdown() {
-  const now = new Date();
-  const VERSION = "v2"; // Change this version to force reset for all users
-  
-  // Clear old localStorage if version doesn't match
-  if (localStorage.getItem('countdownVersion') !== VERSION) {
-    localStorage.clear(); // Clear all localStorage
-    localStorage.setItem('countdownVersion', VERSION);
+  const now = new Date().getTime(); // Get current time in milliseconds
+
+  // Check if countdown target is already set in localStorage
+  if (!localStorage.getItem('countdownTarget')) {
+    const initialTargetTime = new Date();
+    initialTargetTime.setTime(now + 168 * 60 * 60 * 1000); // Add 168 hours (7 days) in milliseconds
+    localStorage.setItem('countdownTarget', initialTargetTime.getTime());
   }
-  
-  // Always calculate from now
-  const targetTime = new Date(now.getTime() + (168 * 60 * 60 * 1000));
-  const diff = targetTime - now;
+
+  const targetTime = Number(localStorage.getItem('countdownTarget')); // Ensure we retrieve a valid number
+  const diff = targetTime - now; // Time remaining
+
+  if (diff <= 0) {
+    document.getElementById("hours").innerText = "00";
+    document.getElementById("minutes").innerText = "00";
+    document.getElementById("seconds").innerText = "00";
+    return;
+  }
 
   const hours = Math.floor(diff / (1000 * 60 * 60));
   const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
@@ -29,12 +35,18 @@ function addGlitchEffect() {
   const countdown = document.getElementById("countdown");
   countdown.style.transform = `translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px)`;
   countdown.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
-  
+
   setTimeout(() => {
     countdown.style.transform = "";
     countdown.style.filter = "";
   }, 100);
 }
+
+// Initialize everything when the DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+});
 
 function createMatrixRain() {
   const canvas = document.createElement('canvas');
